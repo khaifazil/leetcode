@@ -36,12 +36,12 @@ func main() {
 
 func longestCommonPrefix(strs []string) string {
 	var result = ""
-	for i := 0; ; i++ {
-		for _, str := range strs {
-			if i == len(str) || strs[0][i] != str[i] {
+	for i := 0; ; i++ { // init continuous loop that increments i
+		for _, str := range strs { // range over strs array
+			if i == len(str) || strs[0][i] != str[i] { // if length of str is 0 exit loop or we've reached the last char of 1st string, or current char is not equal to char of first string, return result and exit loop.
 				return result
 			}
 		}
-		result += string(strs[0][i])
+		result += string(strs[0][i]) // add current char if reached this point
 	}
 }
