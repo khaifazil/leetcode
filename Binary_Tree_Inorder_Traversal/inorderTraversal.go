@@ -56,6 +56,7 @@ func main() {
 //	return result
 //}
 
+//iterative approach
 //func inorderTraversal(root *TreeNode) []int {
 //	if root == nil {
 //		return nil
