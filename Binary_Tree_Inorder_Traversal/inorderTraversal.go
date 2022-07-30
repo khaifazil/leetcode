@@ -88,14 +88,15 @@ func inorderTraversal(root *TreeNode) []int {
 	stack := make([]*TreeNode, 0)
 
 	for root != nil || len(stack) > 0 {
-		for root != nil {
-			stack = append(stack, root)
-			root = root.Left
+		for root != nil { //loop til reach end of path
+			stack = append(stack, root) // append current root to stack
+			root = root.Left            //go left till root is nil
 		}
-		root = stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
-		ans = append(ans, root.Val)
-		root = root.Right
+		//after reaching furthest left
+		root = stack[len(stack)-1]   //select last added elem in stack
+		stack = stack[:len(stack)-1] //update stack without last elem
+		ans = append(ans, root.Val)  //append last stack elem to ans
+		root = root.Right            //traverse last stack elem's subtree
 	}
 
 	return ans
